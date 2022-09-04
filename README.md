@@ -1,2 +1,2 @@
-# # Altyapı SahibSparta Truva#9683 42
+# # Altyapı Sahibi Sparta Truva#9683
 # 
