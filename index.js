@@ -2,7 +2,7 @@ const { Client, Message, MessageEmbed, Collection } = require("discord.js");
 const fs = require("fs");
 const config = require("./config.json");
 const prefix = config.prefix;
-const token = config.token;
+const token = process.env.token;
 
 const client = new Client({
   messageCacheLifetime: 60,
@@ -89,7 +89,37 @@ client.unload = command => {
   });
 };
 
+const ai = require('@codare/codare.ai')
 
+client.on("messageCreate", async (message) => {
+  if (message.author.bot) return;
+  if (message.channel.id == "1028532320615022613") {
+    return ai.sor(message.content).then(res => {
+      return message.reply(res)
+    })
+  }
+});
+
+
+
+
+
+
+
+
+
+
+const db = require('quick.db')
+
+
+client.on("messageCreate", async message => {
+  let i = await db.fetch(`saas_${message.guild.id}`);
+  if (i === "açık") {
+    if (message.content.toLowerCase() === "sa") {
+      message.reply({ content: "**Aleyküm Selam Hoşgeldin.**" });
+    }
+  }
+})
 
 client.login(token); 
 
