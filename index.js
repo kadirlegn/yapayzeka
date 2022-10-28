@@ -109,17 +109,7 @@ client.on("messageCreate", async (message) => {
 
 
 
-const db = require('quick.db')
 
-
-client.on("messageCreate", async message => {
-  let i = await db.fetch(`saas_${message.guild.id}`);
-  if (i === "açık") {
-    if (message.content.toLowerCase() === "sa") {
-      message.reply({ content: "**Aleyküm Selam Hoşgeldin.**" });
-    }
-  }
-})
 
 client.login(token); 
 
