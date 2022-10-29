@@ -24,7 +24,7 @@ require("./events/message.js")
 require("./events/ready.js")
 
 client.commands = new Collection();
-client.aliases = new Collection(); /// Athena Code İyi Kullanımlar Diler
+client.aliases = new Collection(); /// Airfax İyi Kullanımlar Diler
 fs.readdir("./komutlar/", (err, files) => {
   if (err) console.error(err);
   console.log(`Toplamda ${files.length} Komut Var!`);
@@ -93,7 +93,7 @@ const ai = require('@codare/codare.ai')
 
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
-  if (message.channel.id == "1028532320615022613") {
+  if (message.channel.id == config.ai) {
     return ai.sor(message.content).then(res => {
       return message.reply(res)
     })
