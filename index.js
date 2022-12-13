@@ -24,7 +24,7 @@ require("./events/message.js")
 require("./events/ready.js")
 
 client.commands = new Collection();
-client.aliases = new Collection(); /// Airfax İyi Kullanımlar Diler
+client.aliases = new Collection();
 fs.readdir("./komutlar/", (err, files) => {
   if (err) console.error(err);
   console.log(`Toplamda ${files.length} Komut Var!`);
